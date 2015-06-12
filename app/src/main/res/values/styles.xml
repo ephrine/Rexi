@@ -1,0 +1,10 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <!-- Customize your theme here. -->
+        <item name="android:statusBarColor">#FF5183BE</item>
+        <item name="android:navigationBarColor">#FF4FD6FC</item>
+    </style>
+
+</resources>
