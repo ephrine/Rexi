@@ -35,59 +35,20 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.home);
-   LinearLayout ll1 = (LinearLayout)findViewById(R.id.ll1);
-        LinearLayout ll2 = (LinearLayout)findViewById(R.id.ll2);
-        LinearLayout ll3 = (LinearLayout)findViewById(R.id.ll3);
-        LinearLayout ll4 = (LinearLayout)findViewById(R.id.ll4);
-        LinearLayout ll5 = (LinearLayout)findViewById(R.id.ll5);
-ll1.setVisibility(View.GONE);
-     ll2.setVisibility(View.GONE);
-    ll3.setVisibility(View.GONE);
-  ll4.setVisibility(View.GONE);
-  ll5.setVisibility(View.GONE);
-
-
-
-        sharedpreferences = getSharedPreferences(MyPrescList, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedpreferences.edit();
-       // editor.putString(null,"");
-        editor.commit();
-        String presc1 = sharedpreferences.getString(presc1_pref,"");
-        String presc2 = sharedpreferences.getString(presc2_pref,"");
-        String presc3 = sharedpreferences.getString(presc3_pref,"");
-        String presc4 = sharedpreferences.getString(presc4_pref,"");
-        String presc5 = sharedpreferences.getString(presc5_pref,"");
-
-        if(presc1=="yes"){
-   ll1.setVisibility(View.VISIBLE);
-}
-        if(presc2=="yes"){
-            ll2.setVisibility(View.VISIBLE);
-        }
-        if(presc3=="yes"){
-            ll3.setVisibility(View.VISIBLE);
-        }
-        if(presc4=="yes"){
-            ll4.setVisibility(View.VISIBLE);
-        }
-        if(presc5=="yes"){
-            ll5.setVisibility(View.VISIBLE);
-        }
-
-
-      //  WebView myWebView = (WebView) findViewById(R.id.webView);
-             //  myWebView.loadUrl("https://sites.google.com/site/rexiandroidapp");
-      //  WebSettings webSettings = myWebView.getSettings();
-     //   webSettings.setJavaScriptEnabled(true);
-      //  myWebView.setWebViewClient(new WebViewClient());
-      //  myWebView.setWebViewClient(new MyWebViewClient());
+        setContentView(R.layout.activity_main);
+   
+        WebView myWebView = (WebView) findViewById(R.id.webView);
+               myWebView.loadUrl("https://sites.google.com/site/rexiandroidapp");
+      WebSettings webSettings = myWebView.getSettings();
+       webSettings.setJavaScriptEnabled(true);
+       myWebView.setWebViewClient(new WebViewClient());
+       myWebView.setWebViewClient(new MyWebViewClient());
 
         mInterstitialAd = new InterstitialAd(this);
 
          mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");   // Test Ad ID
 
-       // mInterstitialAd.setAdUnitId("ca-app-pub-6702661245453687/7466670653"); // My own F***king Ad ID
+      
 
         requestNewInterstitial();
         mInterstitialAd.setAdListener(new AdListener() {
